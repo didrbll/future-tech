@@ -1,0 +1,20 @@
+{
+  "name": "future-tech-project",
+  "version": "1.0.0",
+  "homepage": "https://didrbll.github.io/future-tech/",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass-watch": "sass --watch .",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d .",
+    "build": "echo 'Building...'"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "gh-pages": "^6.3.0",
+    "sass": "^1.87.0"
+  }
+}

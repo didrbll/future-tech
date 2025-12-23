@@ -1,0 +1,47 @@
+@use "../helpers" as *;
+
+.summary{
+  &--2-col{
+    .summary{
+      &__list{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: px-to-rem(30) px-to-rem(20);
+
+        @include laptop{
+          row-gap: px-to-rem(20);
+        }
+      }
+
+      &__item{
+        &--wide{
+          grid-column: -1/ 1;
+          row-gap: fluid(16, 10);
+          margin-top: px-to-rem(20);
+
+          @include mobile-s{
+            margin-top: px-to-rem(10);
+          }
+        }
+      }
+    }
+  }
+
+  &__list{
+    display: flex;
+    column-gap: fluid(50, 20);
+  }
+
+  &__item{
+    display: grid;
+    row-gap: px-to-rem(4);
+
+    @include laptop{
+      row-gap: px-to-rem(2);
+    }
+  }
+
+  &__value{
+    color: var(--color-light);
+  }
+}

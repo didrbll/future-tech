@@ -1,0 +1,123 @@
+@use "../helpers" as *;
+
+.select{
+  &__original-control{
+    min-width: px-to-rem(75);
+
+    @include mobile-above{
+      @include visually-hidden;
+    }
+  }
+
+  &__body{
+    position: relative;
+
+    @include mobile{
+      @include visually-hidden;
+    }
+  }
+
+  &__button,
+  &__option{
+    user-select: none;
+    cursor: pointer;
+
+    * {
+      pointer-events: none;
+    }
+  }
+
+  &__button{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: px-to-rem(6);
+    transition-duration: var(--transition-duration);
+
+    @include laptop{
+      column-gap: px-to-rem(4);
+    }
+
+    &.is-expanded{
+      &::after{
+        rotate: -180deg;
+      }
+    }
+
+    &::after{
+      --size: #{px-to-rem(24)};
+
+      @include square(var(--size));
+
+      content: '';
+      background: url("../../icons/arrow-down_white.svg") center/contain no-repeat;
+      transition-duration: var(--transition-duration);
+
+      @include laptop{
+        --size: #{px-to-rem(20)};
+      }
+    }
+  }
+
+  &__dropdown{
+    position: absolute;
+    top: calc(100% + #{px-to-rem(4)});
+    display: grid;
+    row-gap: px-to-rem(4);
+    min-width: px-to-rem(150);
+    max-width: px-to-rem(300);
+    max-height: px-to-rem(250);
+    overflow-y: auto;
+    padding: px-to-rem(4);
+    background-color: var(--color-dark-10);
+    border: var(--border);
+    border-radius: px-to-rem(8);
+    transition-duration: var(--transition-duration);
+
+    @include laptop{
+      border-radius: px-to-rem(6);
+    }
+
+    &.is-on-the-left-side{
+      left: 0;
+      transform-origin: 0 0;
+    }
+
+    &.is-on-the-right-side{
+      right: 0;
+      transform-origin: 100% 0;
+    }
+
+    &:not(.is-expanded){
+      @include hide;
+
+      scale: 0;
+    }
+  }
+
+  &__option{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: px-to-rem(10);
+    padding: px-to-rem(10);
+    border: var(--border);
+    border-radius: inherit;
+
+    @include hover{
+      color: var(--color-accent);
+    }
+
+    &.is-selected{
+      color: var(--color-accent);
+
+      &::after{
+        content: '✔';
+      }
+    }
+
+    &.is-current{
+      border-color: var(--color-accent);
+    }
+  }
+}

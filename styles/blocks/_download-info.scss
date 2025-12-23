@@ -1,0 +1,38 @@
+@use "../helpers" as *;
+
+.download-info{
+  display: inline-grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  column-gap: px-to-rem(50);
+  padding: px-to-rem(30);
+
+  @include laptop{
+    column-gap: px-to-rem(30);
+    padding: px-to-rem(20);
+  }
+
+  @include mobile{
+    padding: px-to-rem(23) px-to-rem(30);
+  }
+
+  &__body{
+    display: grid;
+    row-gap: px-to-rem(4);
+
+    @include laptop{
+      row-gap: px-to-rem(2);
+    }
+  }
+
+  &__team{
+    --personImageSize: #{px-to-rem(50)};
+    background-color: var(--color-dark);
+    border-radius: px-to-rem(12);
+    border: none;
+
+    @include laptop{
+      --personImageSize: #{px-to-rem(40)};
+    }
+  }
+}
