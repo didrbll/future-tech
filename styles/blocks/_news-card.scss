@@ -1,0 +1,83 @@
+@use "../helpers" as *;
+
+.news-card{
+  display: grid;
+  row-gap: px-to-rem(20);
+  height: 100%;
+
+  @include laptop{
+    row-gap: px-to-rem(16);
+  }
+
+  &:has(.news-card__summary){
+    align-items: center;
+    column-gap: px-to-rem(80);
+    padding-block: fluid(80, 40);
+
+    @include laptop{
+      column-gap: px-to-rem(40);
+    }
+
+    @include mobile-above{
+      grid-template-columns: 32% auto;
+      grid-template-areas:
+            'image other'
+            'image other'
+            'image other';
+    }
+
+    .news-card{
+      &__image{
+        height: fluid(427, 213);
+
+        @include mobile-above{
+          grid-area: image;
+        }
+      }
+
+      &__title{
+        @include fluid-text(32, 20);
+
+        font-family: var(--font-family-base);
+        font-weight: 600;
+      }
+    }
+  }
+
+  &:not(:has(.news-card__summary)){
+    .news-card{
+      &__link{
+        padding-inline: fluid(77, 30);
+      }
+    }
+  }
+
+  &__image{
+    width: 100%;
+    height: px-to-rem(222);
+    object-fit: cover;
+    border-radius: px-to-rem(12);
+
+    @include laptop{
+      height: px-to-rem(185);
+      border-radius: px-to-rem(10);
+    }
+  }
+
+  &__body{
+    display: grid;
+    row-gap: px-to-rem(10);
+
+    @include laptop{
+      row-gap: px-to-rem(4);
+    }
+  }
+
+  &__controls{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 1rem;
+  }
+
+}

@@ -1,0 +1,32 @@
+@use "../helpers" as *;
+
+.news{
+  display: grid;
+  row-gap: px-to-rem(80);
+  padding-block: fluid(80, 40);
+
+  @include laptop{
+    row-gap: px-to-rem(40);
+  }
+
+  &__header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 1rem;
+  }
+
+  &__title{
+    color: var(--color-grey-80);
+    font-weight: 500;
+  }
+
+  &__list{
+    display: grid;
+    grid-template-columns:repeat(
+                    auto-fit,
+                    minmax(px-to-rem(328), 1fr)
+    );
+    gap: px-to-rem(30);
+  }
+}

@@ -1,0 +1,40 @@
+@use "../helpers" as *;
+
+.advantage-card{
+  display: grid;
+  row-gap: px-to-rem(30);
+
+  @include laptop{
+    row-gap: px-to-rem(20);
+  }
+
+  @include mobile{
+    row-gap: px-to-rem(14);
+  }
+
+  &__image{
+    @include laptop{
+      width: px-to-rem(40);
+    }
+
+    @include mobile{
+      width: px-to-rem(30);
+    }
+  }
+
+  &__link{
+    display: grid;
+    row-gap: px-to-rem(4);
+
+    @include laptop{
+      row-gap: px-to-rem(4);
+    }
+  }
+
+  &__details{
+    @include fluid-text(20, 14);
+
+    font-family: var(--font-family-accent);
+    color: var(--color-grey-60);
+  }
+}
